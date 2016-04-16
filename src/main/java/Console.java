@@ -1,3 +1,4 @@
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
@@ -6,8 +7,13 @@ import java.util.regex.Pattern;
 
 class Console {
 
+  private final ByteArrayOutputStream byteArrayOutput = new ByteArrayOutputStream();
+  private final PrintStream output = new PrintStream(byteArrayOutput);
   private InputStream input = System.in;
-  private PrintStream output = System.out;
+
+  Console() {
+    System.setOut(output);
+  }
 
   int getFilteredNumeriekInput(String text) {
     int filteredInput;
@@ -27,11 +33,12 @@ class Console {
     this.input = input;
   }
 
-  public void setOutput(PrintStream output) {
-    this.output = output;
+  String getOutputString() {
+    return byteArrayOutput.toString();
   }
 
-  public PrintStream getOutput() {
-    return output;
+  void println(String text) {
+    output.println(text);
   }
+
 }

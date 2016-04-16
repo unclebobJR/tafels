@@ -8,9 +8,9 @@ class Oefening {
       Som opgave = deTafelVan.getNewSom();
       int gegevenAntwoord = console.getFilteredNumeriekInput(opgave.toString() + " = ");
       if (gegevenAntwoord == opgave.antwoord()) {
-        console.getOutput().println("Goed");
+        console.println("Goed");
       } else {
-        console.getOutput().println("Fout");
+        console.println("Fout");
       }
     }
   }

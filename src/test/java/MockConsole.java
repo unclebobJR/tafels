@@ -1,12 +1,10 @@
-import java.io.InputStream;
-import java.io.PrintStream;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class MockConsole extends Console {
-  private InputStream input = System.in;
-  private PrintStream output = System.out;
+class MockConsole extends Console {
 
+  MockConsole() {
+  }
 
   int getFilteredNumeriekInput(String text) {
     int tafel = -1;
