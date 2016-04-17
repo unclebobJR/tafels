@@ -1,21 +1,31 @@
+import entity.Som;
+import entity.Tafel;
+import presenter.Presenter;
+
 class Oefening {
 
-  private Console console = new Console();
+  private Presenter presenter;
+
+  Oefening() {
+    presenter = new Presenter();
+  }
+
+  void setPresenter(Presenter aPresenter) {
+    this.presenter = aPresenter;
+  }
 
   void eenTafel(int tafel) {
     Tafel deTafelVan = new Tafel(tafel);
     for (int i = 0; i < 10; i++) {
       Som opgave = deTafelVan.getNewSom();
-      int gegevenAntwoord = console.getFilteredNumeriekInput(opgave.toString() + " = ");
+      presenter.print(opgave.toString() + " = ");
+      int gegevenAntwoord = presenter.getFilteredNumeriekInput();
       if (gegevenAntwoord == opgave.antwoord()) {
-        console.println("Goed");
+        presenter.println("Goed");
       } else {
-        console.println("Fout");
+        presenter.println("Fout");
       }
     }
   }
 
-  void setConsole(Console console) {
-    this.console = console;
-  }
 }

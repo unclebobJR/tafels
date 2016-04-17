@@ -1,9 +1,11 @@
-class Som {
+package entity;
+
+public class Som {
   private int tafel;
   private int vermenigvuldiger;
   private char operator;
 
-  Som(int tafel, int vermenigvuldiger) {
+  public Som(int tafel, int vermenigvuldiger) {
     this.tafel = tafel;
     this.vermenigvuldiger = vermenigvuldiger;
     this.operator = 'x';
